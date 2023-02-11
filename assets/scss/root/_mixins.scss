@@ -1,0 +1,92 @@
+//media queries mixins
+$bhuian-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+@function breakpoint-next(
+  $name,
+  $bhuian-breakpoints: $bhuian-breakpoints,
+  $breakpoint-names: map-keys($bhuian-breakpoints)
+) {
+  $n: index($breakpoint-names, $name);
+  @if not $n {
+    @error "breakpoint `#{$name}` not found in `#{$bhuian-breakpoints}`";
+  }
+  @return if(
+    $n < length($breakpoint-names),
+    nth($breakpoint-names, $n + 1),
+    null
+  );
+}
+@function breakpoint-min($name, $bhuian-breakpoints: $bhuian-breakpoints) {
+  $min: map-get($bhuian-breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+@function breakpoint-max($name, $bhuian-breakpoints: $bhuian-breakpoints) {
+  $max: map-get($bhuian-breakpoints, $name);
+  @return if($max and $max > 0, $max - 0.02, null);
+}
+@function breakpoint-infix($name, $bhuian-breakpoints: $bhuian-breakpoints) {
+  @return if(breakpoint-min($name, $bhuian-breakpoints) == null, "", "-#{$name}");
+}
+@mixin media-breakpoint-up($name, $bhuian-breakpoints: $bhuian-breakpoints) {
+  $min: breakpoint-min($name, $bhuian-breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+@mixin media-breakpoint-down($name, $bhuian-breakpoints: $bhuian-breakpoints) {
+  $max: breakpoint-max($name, $bhuian-breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+@mixin media-breakpoint-between($lower, $upper, $bhuian-breakpoints: $bhuian-breakpoints) {
+  $min: breakpoint-min($lower, $bhuian-breakpoints);
+  $max: breakpoint-max($upper, $bhuian-breakpoints);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($lower, $bhuian-breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($upper, $bhuian-breakpoints) {
+      @content;
+    }
+  }
+}
+@mixin media-breakpoint-only($name, $bhuian-breakpoints: $bhuian-breakpoints) {
+  $min: breakpoint-min($name, $bhuian-breakpoints);
+  $next: breakpoint-next($name, $bhuian-breakpoints);
+  $max: breakpoint-max($next, $bhuian-breakpoints);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($name, $bhuian-breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($next, $bhuian-breakpoints) {
+      @content;
+    }
+  }
+}

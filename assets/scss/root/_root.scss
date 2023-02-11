@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Alata&family=Almarai:wght@300;400&display=swap");
+:root {
+  // main color
+  --primary-color: #4770e5;
+  --secondary-color: #3aafc3;
+  --success-color: #27ae60;
+  --danger-color: #eb5757;
+  --warning-color: #e2b93b;
+  --info-color: #2f80ed;
+  --light-color: #e5f4f7;
+  --dark-color: #001233;
+  // gray-color
+  --gray-100: #000000;
+  --gray-200: #5c677d;
+  --gray-300: #7d8597;
+  --gray-400: #979dac;
+  --gray-500: #c5c8d0;
+  --gray-600: #e5e6e9;
+  --gray-700: #fafafa;
+  --white-color: #ffffff;
+  --body-color: #ffffff;
+  --body-font: "Almarai", sans-serif;
+  --heading-font: "Alata", sans-serif;
+  --light: 300;
+  --regular: 400;
+  --medium: 500;
+  --bold: 600;
+  // fontSize
+  --normal-font-size: 15px;
+  --small-font-size: 14px;
+  --smaller-font-size: 13px;
+  @media screen and (min-width: 992px) {
+    --normal-font-size: 16px;
+    --small-font-size: 15px;
+    --smaller-font-size: 14px;
+  }
+}
+
+// selection
+*::selection {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+// custrom Scrollbar
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--white-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 5px;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+	font-family: 'DM Sans', sans-serif;
+	font-size: 1rem;
+	line-height: 1.625em;
+	color: #767676;
+	overflow-y: hidden;
+}
+
+a:hover,
+a:focus {
+	text-decoration: none;
+}
+
+a:focus {
+	text-decoration: none;
+	box-shadow: none;
+}
+
+button:focus {
+	outline: 0;
+}
+
+/* 1.2 Typography */
+
+h1,
+.h1 {
+	position: relative;
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 5.725rem;
+	font-weight: 700;
+	line-height: 1;
+	color: #000;
+}
+
+h2,
+.h2 {
+	position: relative;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 700;
+	font-size: 2.7rem;
+	line-height: 1.2;
+	color: #000;
+	margin: 2rem 0;
+}
+
+h3,
+.h3 {
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 700;
+	font-size: 1.925rem;
+	line-height: 1.25;
+	color: #000;
+	margin: 1.5rem 0;
+}
+
+h4,
+.h4 {
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 600;
+	font-size: 1.525rem;
+	line-height: 1.2;
+	color: #000;
+	margin: 1.5rem 0;
+}
+
+h5,
+.h5 {
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 600;
+	font-size: 1.125rem;
+	line-height: 1.2;
+	color: #000;
+	margin: 1.2rem 0;
+}
+
+h6,
+.h6 {
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 700;
+	font-size: 0.9rem;
+	letter-spacing: 1px;
+	line-height: 1.2;
+	color: #000;
+	margin: 1rem 0;
+	text-transform: uppercase;
+}
+
+h1 a,
+.h1 a,
+h2 a,
+.h2 a,
+h3 a,
+.h3 a,
+h4 a,
+.h4 a,
+h5 a,
+.h5 a,
+h6 a,
+.h6 a {
+	color: inherit;
+}
+
+h1 a:hover,
+.h1 a:hover,
+h2 a:hover,
+.h2 a:hover,
+h3 a:hover,
+.h3 a:hover,
+h4 a:hover,
+.h4 a:hover,
+h5 a:hover,
+.h5 a:hover,
+h6 a:hover,
+.h6 a:hover {
+	text-decoration: none;
+}
+
+p {
+	margin-bottom: 1rem;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+a {
+	color: #eb9532;
+	-webkit-transition: color 0.3s ease-out;
+	-o-transition: color 0.3s ease-out;
+	transition: color 0.3s ease-out;
+}
+
+a:hover,
+a:focus {
+	color: #eb9532;
+	outline: none;
+}
+
+a:focus {
+	text-decoration: none;
+} 

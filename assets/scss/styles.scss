@@ -1,0 +1,14 @@
+@import "./root/mixins";
+@import "./root/root";
+
+
+//  Components
+@import "./Components/navbar";
+
+
+
+
+// main style start here
+h1{
+    color: red;
+}

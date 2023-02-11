@@ -1,0 +1,27 @@
+{
+  "name": "latim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zubairbhuian/latim.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zubairbhuian/latim/issues"
+  },
+  "homepage": "https://github.com/zubairbhuian/latim#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.6.3",
+    "swiper": "^9.0.4",
+    "wowjs": "^1.1.3"
+  }
+}
